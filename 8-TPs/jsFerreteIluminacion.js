@@ -10,5 +10,59 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  */
 function CalcularPrecio () 
 {
- 	
+    var precio,cantidad,marca,ib;
+
+    cantidad = document.getElementById("Cantidad").value;
+    cantidad = parseInt(cantidad);
+
+    marca = document.getElementById("Marca").value;
+
+    if (cantidad>=6)
+        {
+            precio = cantidad*35-(cantidad * 35*50/100);
+           document.getElementById("precioDescuento").value = precio; 
+        }      
+     else if (cantidad==5 && marca=="ArgentinaLuz")
+            {
+                precio = cantidad*35-(cantidad * 35*40/100);
+                document.getElementById("precioDescuento").value = precio;
+            }
+        else if (cantidad==5 && marca!="ArgentinaLuz")
+                {
+                    precio = cantidad*35 - (cantidad *35*30/100);
+                    document.getElementById("precioDescuento").value = precio;
+                } 
+            else if (cantidad==4 && (marca=="FelipeLamparas"||marca=="ArgentinaLuz"))
+                    {
+                        precio = cantidad*35 -(cantidad*35 *25/100);
+                        document.getElementById("precioDescuento").value = precio;
+                    }
+                else if (cantidad==4 && (marca!="FelipeLamparas"&& marca!="ArgentinaLuz"))   
+                        {
+                            precio = cantidad*35 - (cantidad*35 *20/100);
+                            document.getElementById("precioDescuento").value = precio;
+                        }
+                    else if (cantidad==3 && marca=="ArgentinaLuz")
+                            {
+                                precio = cantidad*35-(cantidad*35*15/100);
+                                document.getElementById("precioDescuento").value = precio;
+                            }    
+                        else if (cantidad==3 && marca=="FelipeLamparas")
+                                {
+                                    precio = cantidad*35-(cantidad*35*10/100);
+                                    document.getElementById("precioDescuento").value = precio;
+                                }    
+                            else if (cantidad==3 && (marca!="ArgentinaLuz" && marca!="FelipeLamparas"))
+                                    {
+                                        precio = cantidad*35-(cantidad*35*5/100);
+                                        document.getElementById("precioDescuento").value = precio;
+                                    }    
+                                else if (precio>120)
+                                        {
+                                            precio=precio*10/100+precio;
+                                            document.getElementById("precioDescuento").value = precio;
+                                            ib=precio*10/100;
+                                            alert("Usted pago de IIBB: "+ib);
+                                            
+                                        }
 }
