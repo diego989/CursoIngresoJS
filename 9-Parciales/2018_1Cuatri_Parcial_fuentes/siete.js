@@ -1,15 +1,15 @@
 function mostrar()
-{
+{ 
     var nota;
     var sexo;
     var i;
-    var acumulador;
-    var promedio;
-    var notaBaja;
-    var sexoNotaBaja;
-    var cantidad;
+    var acumulador=0;
+    var promedio=0;
+    var notaMenor=0;
+    var sexoNotaMenor;
+    var cantidad=0;
 
-    for (i=0 ; i<1 ; i++)
+    for (i=0 ; i<6 ; i++)
     {
         nota = prompt("Ingrese la nota del alumno/a");
         nota = parseInt(nota);
@@ -24,14 +24,16 @@ function mostrar()
             sexo = prompt ("Ingrese el sexo nuevamente");
         }
         
-        acumulador = nota + nota;
-        if (nota<nota)
+        acumulador = acumulador + nota;
+        notaMenor = nota;
+
+        if (nota<notaMenor)
         {
-            notaBaja = nota;
-            sexoNotaBaja = sexo;
+            notaMenor = nota;
+            sexoNotaMenor = sexo;
         }
 
-        if (sexo=="m" && nota>=6)
+        if (sexo=="m" && nota<=6)
         {
             cantidad++;
         }
@@ -39,9 +41,10 @@ function mostrar()
 
     }
 
-    promedio = acumulador / i;
+    promedio = (acumulador / i);
 
-    alert("A) Promedio de las notas: "+promedio+"\n"+"B) La nota mas baja es: "+notaBaja+", su sexo es: "+sexoNotaBaja+"\n"+"C) La cantidad de varones con nota menores o igual a 6: "+cantidad);
+    alert("A) Promedio de las notas: "+promedio.toFixed(2)+"\n"+"B) La nota mas baja es: "+notaMenor+", su sexo es: "+sexoNotaMenor+"\n"+"C) La cantidad de varones con nota menores o igual a 6: "+cantidad);
     // \n
     // <br>
+
 }
