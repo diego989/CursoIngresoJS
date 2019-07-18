@@ -9,13 +9,14 @@ function mostrar()
     var sexoNotaMenor;
     var cantidad=0;
 
-    for (i=0 ; i<6 ; i++)
+    for (i=0 ; i<5 ; i++)
     {
         nota = prompt("Ingrese la nota del alumno/a");
         nota = parseInt(nota);
         while (nota<0 || nota>10)
         {
             nota = prompt("Ingrese la nota del alumno/a nuevamente");
+            nota = parseInt(nota);
         }
         
         sexo = prompt ("Ingrese el sexo");
@@ -25,9 +26,9 @@ function mostrar()
         }
         
         acumulador = acumulador + nota;
-        notaMenor = nota;
+        
 
-        if (nota<notaMenor)
+        if (i==0 || nota<notaMenor)
         {
             notaMenor = nota;
             sexoNotaMenor = sexo;
