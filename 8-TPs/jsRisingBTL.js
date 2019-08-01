@@ -9,5 +9,55 @@ F.	Nacionalidad, “A” para argentinos, “E” para extranjeros, “N” para
  */
 function ComenzarIngreso () 
 {
- 
+  
+    var Edad, Sexo, EstadoCivil, SdoBruto, NumLegajo, Nacionalidad;
+   
+    Edad = prompt("Ingrese la edad");
+    while (isNaN(Edad) || parseInt(Edad)<18 || parseInt(Edad)>90)
+    {
+        Edad = prompt("Ingrese una edad válida");
+    }
+    Edad = parseInt (Edad);
+
+    document.getElementById("Edad").value = Edad;
+
+    Sexo = prompt("Indique sexo");
+    while (Sexo!="F" && Sexo!="M")
+    {
+        Sexo = prompt("Sexo no válido, ingrese de nuevo");
+    }
+    document.getElementById("Sexo").value = Sexo;
+
+    EstadoCivil = prompt("Indique su Estado Civil"+"\n"+"1-para soltero"+"\n"+"2-para casados"+"\n"+"3-para divorciados"+"\n"+"4-para viudos");
+    while (isNaN(EstadoCivil) || parseInt(EstadoCivil)<1 || parseInt(EstadoCivil)>4)
+    {
+        EstadoCivil = prompt("Elección inválida"+"\n"+"Indique su Estado Civil"+"\n"+"1-para soltero"+"\n"+"2-para casados"+"\n"+"3-para divorciados"+"\n"+"4-para viudos");
+    }
+    document.getElementById("EstadoCivil").value = EstadoCivil;
+
+    SdoBruto = prompt ("¿Cuál es su Sueldo Bruto?");
+    while (isNaN(SdoBruto) || parseInt(SdoBruto)<8000)
+    {
+        SdoBruto = prompt("El sueldo bruto debe ser no menor a $8000");
+    }
+    document.getElementById("Sueldo").value = SdoBruto;
+
+    NumLegajo = prompt ("Ingrese el número de legajo");
+    while(isNaN(NumLegajo) || validarLegajo(NumLegajo)==false)
+    {
+        NumLegajo = prompt("Error, ingrese legajo nuevamente");
+    }
+    document.getElementById("Legajo").value = NumLegajo;
+}
+function validarLegajo(Legajo)
+{
+    if (Legajo.length!=4)
+    {
+        return false;
+    }
+    else if (Legajo[0]=="0")
+    {
+        return false;
+    }
+   return true;
 }
