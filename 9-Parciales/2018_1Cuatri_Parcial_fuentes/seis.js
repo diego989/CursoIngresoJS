@@ -1,9 +1,11 @@
 function mostrar()
 {
     var hora;
+    var anuncio;
 
     hora = document.getElementById("laHora").value;
     hora = parseInt(hora);
+    anuncio = "A dormir!!";
 
     switch (hora)
         {
@@ -12,7 +14,8 @@ function mostrar()
             case 3:
             case 4:
             case 5:
-                {
+                {   
+                    alert("Es de noche");
                     break;
                 }
             case 6:
@@ -43,7 +46,14 @@ function mostrar()
             case 23:
             case 24:
                 {
-                    alert("Es de noche");
+                    if (hora>=20 && hora<24)
+                    {
+                        alert("Es de noche. "+anuncio);
+                    }
+                    else 
+                    {
+                        alert("Es de noche. ");
+                    }
                     break;
                 }
             default:
@@ -53,9 +63,6 @@ function mostrar()
                 }
         }
     
-    if (hora>19 && hora<24)
-        {
-            alert("A dormir");
-        }
+
 
 }
