@@ -48,6 +48,36 @@ function ComenzarIngreso ()
         NumLegajo = prompt("Error, ingrese legajo nuevamente");
     }
     document.getElementById("Legajo").value = NumLegajo;
+
+    Nacionalidad = prompt("Indique su nacionalidad"+"\n"+"“A” para argentinos"+"\n"+"“E” para extranjeros"+"\n"+"“N” para nacionalizados");
+    switch (Nacionalidad)
+    {
+        case "A":
+        {
+            Nacionalidad = "Argentino/a";
+            break;
+        }
+        case "E":
+        {
+            Nacionalidad = "Extranjero/a";
+            break;
+        }    
+        case "N":
+        {
+            Nacionalidad = "Nacionalizado/a";
+            break;
+        }
+        default :
+        {
+            Nacionalidad = prompt("ERROR"+"\n"+"Indique su nacionalidad"+"\n"+"“A” para argentinos"+"\n"+"“E” para extranjeros"+"\n"+"“N” para nacionalizados");
+            while (Nacionalidad!= "A" && Nacionalidad!= "N" && Nacionalidad!="N")
+            {
+                Nacionalidad = prompt("ERROR"+"\n"+"Indique su nacionalidad"+"\n"+"“A” para argentinos"+"\n"+"“E” para extranjeros"+"\n"+"“N” para nacionalizados");
+            }
+            break;
+        }        
+    }
+    document.getElementById("Nacionalidad").value = Nacionalidad;
 }
 function validarLegajo(Legajo)
 {
